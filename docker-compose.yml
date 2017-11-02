@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  node:
+    build: .docker/node/
+    volumes:
+      - "./src:/srv/htdocs/"
+    ports:
+      - "${PORT}:8080"
+    command: npm start
