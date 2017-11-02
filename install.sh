@@ -3,10 +3,9 @@ TEMPLATE=webpack
 
 if [ ! -e ./.env ]
 then
-    cp .docker/common.env .env
+    echo -n "" > .env
 fi
 
-docker-compose build
-docker-compose run node vue init $TEMPLATE
-docker-compose run node npm install
+docker-compose run --rm node vue init $TEMPLATE
+docker-compose run --rm node npm install
 docker-compose up -d
